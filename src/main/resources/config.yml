@@ -1,0 +1,23 @@
+info-format: "&cBạn đã bị phát hiện sử dụng cheat &6Type Nuker&c."
+
+punishments:
+  - type: KICK
+    duration: 0
+    message: "&c[Lần 1] {info}"
+  - type: KICK
+    duration: 0
+    message: "&c[Lần 2] {info}"
+  - type: BAN
+    duration: 300
+    message: "&c[Lần 3] Bạn bị ban 5 phút. {info}"
+  - type: BAN
+    duration: 3600
+    message: "&c[Lần 4] Bạn bị ban 1 giờ. {info}"
+  - type: BAN
+    duration: 43200
+    message: "&c[Lần 5] Bạn bị ban 12 giờ. {info}"
+  - type: BAN
+    duration: 86400
+    message: "&c[Lần 6] Bạn bị ban 24 giờ. {info}"
+
+reset-days: 14

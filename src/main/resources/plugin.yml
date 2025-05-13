@@ -1,0 +1,13 @@
+name: VulcanNukerKick
+version: 1.0
+main: me.herzchen.vulcannukerkick.VulcanNukerKick
+api-version: 1.19
+author: Herzchen
+depend: [Vulcan]
+commands:
+  vkreload:
+    description: Reload plugin configuration
+    usage: /<command>
+  vkstats:
+    description: Xem số lần vi phạm của người chơi
+    usage: /<command> <player>

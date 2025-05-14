@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class VulcanNukerKick extends JavaPlugin {
@@ -56,7 +57,17 @@ public class VulcanNukerKick extends JavaPlugin {
 
     private void checkAndResetOffenses() {
         String lastResetStr = offensesConfig.getString("lastReset", "");
-        LocalDate lastReset = lastResetStr.isEmpty() ? LocalDate.now().minusDays(999) : LocalDate.parse(lastResetStr);
+
+        LocalDate lastReset;
+        try {
+            lastReset = lastResetStr.isEmpty()
+                    ? LocalDate.now().minusDays(999)
+                    : LocalDate.parse(lastResetStr);
+        } catch (DateTimeParseException e) {
+            getLogger().warning("Định dạng ngày lastReset không hợp lệ: " + lastResetStr + ". Sử dụng ngày mặc định.");
+            lastReset = LocalDate.now().minusDays(999);
+        }
+
         int resetDays = getConfig().getInt("reset-days", 14);
 
         if (LocalDate.now().isAfter(lastReset.plusDays(resetDays))) {
